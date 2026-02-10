@@ -1,0 +1,48 @@
+export function sumbitHeandler(e) {
+  e.preventDefault();
+  setdata({
+    empName: "",
+    empId: "",
+    empBio: "",
+    empimgPath: "",
+  });
+  // console.log(satate);
+  if (satate.mode === "create") {
+    dispatch(setEmployData(data));
+  } else if (satate.mode === "edit") {
+    if (editUserId.userId) {
+      const update = {
+        userId: editUserId?.userId,
+      };
+
+      // for (const key in data) {
+      //   if (data[key] == "") continue;
+      //   update.updatedata[key] = data[key];
+      // } frist way
+
+      // const ojd = Object.keys(data).reduce((acc, key) => {
+      //   if (data[key] !== "") {
+      //     acc[key] = data[key];
+      //   }
+      //   return acc;
+      // }, {});
+      const updatedFild = Object.fromEntries(
+        Object.entries(data).filter((ddd) => {
+          const [key, value] = ddd;
+          return value?.toString().trim() != "" && value != null;
+        })
+      );
+
+      update.updateDate = updatedFild;
+
+      console.log(update);
+
+      // dispatch(updateEmployData(update));
+      editUserId?.setUserId("");
+    }
+
+    // console.log("create employ");
+  }
+  dispatch(getData());
+  dispatch(isForm({ mode: "", isForm: false }));
+}
