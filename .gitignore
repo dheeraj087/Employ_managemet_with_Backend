@@ -26,3 +26,23 @@ env
 *.njsproj
 *.sln
 *.sw?
+# Backend
+backend/node_modules/
+backend/.env
+
+# Frontend
+frontend/node_modules/
+frontend/.env
+
+# Common
+.env
+node_modules/
+dist/
+build/
+
+# Logs
+*.log
+
+# OS / Editor
+.DS_Store
+.vscode/
