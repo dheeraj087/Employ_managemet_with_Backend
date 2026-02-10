@@ -1,0 +1,2 @@
+npm create vite@latest . tailwindcss @tailwindcss/vite react-router-dom redux react-redux
+-D daisyui@latest 
